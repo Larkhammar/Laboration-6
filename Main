@@ -1,6 +1,7 @@
 
 public class Main {
 
+*/Det här är Main-klassen är de olika menyerna skapas och programmet körs/*
 	
 	public static void main(String[] args) {
 		
