@@ -1,1 +1,82 @@
 
+public class Main {
+
+	
+	public static void main(String[] args) {
+		
+		final Menu menu = new Menu ("HUVUDMENY");
+		final Menu varaMenu = new Menu ("LÄGG TILL NY VARA"); //vad gör final?
+		final Menu bokMenu = new Menu ("LÄGG TILL BOK");
+		final Menu filmMenu = new Menu ("LÄGG TILL FILM");
+		final Menu kladerMenu = new Menu ("LÄGG TILL KLÄDER");
+		final Menu matMenu = new Menu ("LÄGG TILL MAT");
+		final add addVaror = new add();
+
+		System.out.println("Väkommen till programmet");
+		
+		
+		//HUVUDMENY
+		menu.add(new AbstractMenuItem("Avsluta"){
+			public void execute(){
+				
+			}
+		});
+		
+		menu.add(new AbstractMenuItem("Varulista"){
+			public void execute(){
+				for(String print: addVaror.varor){
+					System.out.println(print);
+				}
+				menu.execute();
+			}
+		});
+		
+		menu.add(new AbstractMenuItem("Lägg till en ny vara"){
+			public void execute()  {
+				varaMenu.execute();
+			}
+		});
+		
+		
+		//LÄGG TILL NY VARA
+		varaMenu.add(new AbstractMenuItem("Tillbaka"){
+			public void execute(){
+				menu.execute();	
+			}
+		});
+		
+		varaMenu.add(new AbstractMenuItem("Bok"){
+			public void execute(){	
+				addVaror.addBok();
+				varaMenu.execute();
+			}
+		});
+		
+		varaMenu.add(new AbstractMenuItem("Film"){
+			public void execute(){
+				addVaror.addFilm();
+				varaMenu.execute();	
+			}
+		});
+		
+		varaMenu.add(new AbstractMenuItem("Kläder"){
+			public void execute(){
+				addVaror.addKlader();
+				varaMenu.execute();	
+			}
+		});
+		
+		varaMenu.add(new AbstractMenuItem("Mat"){
+			public void execute(){
+				addVaror.addMat();
+				varaMenu.execute();	
+			}
+		});
+		
+		//STARTA MENYN
+		menu.execute();	
+
+	}
+}
+
+
